@@ -1,0 +1,19 @@
+{
+  "name": "disaster-platform-server",
+  "version": "1.0.0",
+  "description": "Smart Disaster Response & Evacuation Intelligence Platform - Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "seed": "node data/seed.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongodb-memory-server": "^10.0.0",
+    "mongoose": "^8.6.0",
+    "socket.io": "^4.7.5"
+  }
+}
