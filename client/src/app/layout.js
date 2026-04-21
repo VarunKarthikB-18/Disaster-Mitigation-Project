@@ -1,0 +1,31 @@
+import './globals.css';
+
+export const metadata = {
+  title: 'Smart Disaster Response & Evacuation Intelligence Platform',
+  description: 'Real-time disaster management system with intelligent evacuation routing, SOS coordination, and shelter recommendations. Protecting communities through smart technology.',
+  keywords: 'disaster response, evacuation, SOS, shelter finder, emergency management',
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossOrigin=""
+        />
+      </head>
+      <body>
+        {children}
+      </body>
+    </html>
+  );
+}
