@@ -98,14 +98,15 @@ h1, h2, h3, h4 { color: var(--text-bright); font-weight: 700; letter-spacing: -0
 .hero-header {
   height: var(--header-height); padding: 0 40px;
   display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid var(--border-subtle); z-index: 10; position: relative;
+  border-bottom: 1px solid var(--border-subtle); z-index: 1000; position: sticky; top: 0;
+  background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px);
 }
 
-.hero-brand { display: flex; align-items: center; gap: 12px; }
+.hero-brand { display: flex; align-items: center; gap: 12px; cursor: pointer; }
 .hero-brand-icon { width: 36px; height: 36px; background: var(--accent-blue); color: white; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-sm); font-size: 20px; }
 .hero-brand-text { font-size: 20px; font-weight: 800; color: var(--text-bright); letter-spacing: -0.5px; }
 
-.hero-nav { display: flex; gap: 24px; }
+.hero-nav { display: flex; gap: 24px; align-items: center; }
 .hero-nav a { font-size: 14px; font-weight: 600; color: var(--text-secondary); transition: 0.2s; }
 .hero-nav a:hover { color: var(--accent-blue); }
 
@@ -130,12 +131,23 @@ h1, h2, h3, h4 { color: var(--text-bright); font-weight: 700; letter-spacing: -0
 .hero-btn .btn-text strong { display: block; font-size: 16px; margin-bottom: 4px; }
 .hero-btn .btn-text span { display: block; font-size: 13px; font-weight: 400; opacity: 0.8; }
 
-.hero-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; width: 100%; text-align: left; }
+.hero-section-title { font-size: 36px; margin-bottom: 40px; text-align: center; width: 100%; color: var(--text-bright); }
+
+.hero-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; width: 100%; text-align: left; padding: 60px 0; border-top: 1px solid var(--border-subtle); }
 .feature-card { background: white; padding: 32px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--border-subtle); transition: 0.3s; }
 .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
 .feature-icon { font-size: 32px; margin-bottom: 20px; }
 .feature-card h3 { font-size: 18px; margin-bottom: 12px; }
 .feature-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+.hero-technology { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; width: 100%; text-align: left; padding: 60px 0; border-top: 1px solid var(--border-subtle); align-items: center; }
+.tech-text h3 { font-size: 28px; margin-bottom: 16px; color: var(--text-bright); }
+.tech-text p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+.tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.tech-item { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; color: var(--text-primary); background: white; padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-sm); }
+.tech-item span { color: var(--accent-blue); font-size: 18px; }
+
+.hero-footer { width: 100%; padding: 40px 24px; background: white; border-top: 1px solid var(--border-subtle); text-align: center; font-size: 14px; color: var(--text-muted); z-index: 10; position: relative; }
 
 
 /* === AUTH PAGE (`/auth`) === */
