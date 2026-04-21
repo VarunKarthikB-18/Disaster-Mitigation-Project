@@ -8,12 +8,12 @@ import HospitalMarkers from './HospitalMarkers';
 import SOSMarkers from './SOSMarkers';
 import RoutePolyline from './RoutePolyline';
 
-// Delhi NCR center
-const DEFAULT_CENTER = [28.6139, 77.2090];
+// Mumbai Center
+const DEFAULT_CENTER = [19.0760, 72.8777];
 const DEFAULT_ZOOM = 12;
 
-// Dark map tiles — Stadia Dark
-const TILE_URL = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+// Light, professional maps
+const TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
 const TILE_ATTR = '&copy; <a href="https://www.openstreetmap.org">OSM</a>, &copy; <a href="https://carto.com">CARTO</a>';
 
 export default function MapView() {

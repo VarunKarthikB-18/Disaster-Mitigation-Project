@@ -6,6 +6,8 @@ export const metadata = {
   keywords: 'disaster response, evacuation, SOS, shelter finder, emergency management',
 };
 
+import { AppProvider } from '@/context/AppContext';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -24,7 +26,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {children}
+        <AppProvider>
+          {children}
+        </AppProvider>
       </body>
     </html>
   );

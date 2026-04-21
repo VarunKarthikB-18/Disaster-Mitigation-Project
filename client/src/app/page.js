@@ -121,9 +121,5 @@ function DashboardContent() {
 }
 
 export default function Home() {
-  return (
-    <AppProvider>
-      <DashboardContent />
-    </AppProvider>
-  );
+  return <DashboardContent />;
 }

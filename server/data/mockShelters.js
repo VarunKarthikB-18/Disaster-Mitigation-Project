@@ -1,131 +1,70 @@
-/**
- * Mock shelters and hospitals across Delhi NCR.
- * Coordinates are [longitude, latitude] (GeoJSON format).
- */
 const mockShelters = [
-  // === SHELTERS ===
+  // Shelters
   {
-    name: 'Pragati Maidan Relief Camp',
-    location: { type: 'Point', coordinates: [77.2490, 28.6188] },
-    capacity: 500,
-    currentOccupancy: 120,
-    amenities: ['Water', 'Food', 'Medical Aid', 'Blankets', 'WiFi', 'Phone Charging'],
-    contact: '+91-11-2337-1100',
-    isHospital: false,
-    isActive: true,
+    name: 'Bandra Kurla Complex Relief Camp',
+    capacity: 2000,
+    currentOccupancy: 850,
+    location: { type: 'Point', coordinates: [72.8656, 19.0596] },
+    amenities: ['food', 'water', 'medical', 'power'],
+    contact: '+91-22-2659-0001',
+    isHospital: false
   },
   {
-    name: 'Connaught Place Community Shelter',
-    location: { type: 'Point', coordinates: [77.2195, 28.6315] },
-    capacity: 200,
-    currentOccupancy: 90,
-    amenities: ['Water', 'Food', 'First Aid', 'Power Supply'],
-    contact: '+91-11-2341-2200',
-    isHospital: false,
-    isActive: true,
-  },
-  {
-    name: 'Dwarka Sector 10 Evacuation Centre',
-    location: { type: 'Point', coordinates: [77.0650, 28.5840] },
-    capacity: 400,
-    currentOccupancy: 45,
-    amenities: ['Water', 'Food', 'Medical Aid', 'Blankets', 'Power Supply', 'Sanitation'],
-    contact: '+91-11-2508-3300',
-    isHospital: false,
-    isActive: true,
-  },
-  {
-    name: 'Rohini Stadium Shelter',
-    location: { type: 'Point', coordinates: [77.1160, 28.7360] },
-    capacity: 600,
-    currentOccupancy: 180,
-    amenities: ['Water', 'Food', 'Medical Aid', 'Blankets', 'WiFi', 'Power Supply'],
-    contact: '+91-11-2756-4400',
-    isHospital: false,
-    isActive: true,
-  },
-  {
-    name: 'Lajpat Nagar Community Hall',
-    location: { type: 'Point', coordinates: [77.2370, 28.5700] },
-    capacity: 150,
-    currentOccupancy: 110,
-    amenities: ['Water', 'Food', 'First Aid'],
-    contact: '+91-11-2621-5500',
-    isHospital: false,
-    isActive: true,
-  },
-  {
-    name: 'Janakpuri District Park Shelter',
-    location: { type: 'Point', coordinates: [77.0810, 28.6270] },
-    capacity: 350,
-    currentOccupancy: 60,
-    amenities: ['Water', 'Food', 'Medical Aid', 'Blankets', 'Sanitation'],
-    contact: '+91-11-2553-6600',
-    isHospital: false,
-    isActive: true,
-  },
-  {
-    name: 'Mayur Vihar Phase 1 Relief Centre',
-    location: { type: 'Point', coordinates: [77.2930, 28.6070] },
-    capacity: 250,
-    currentOccupancy: 200,
-    amenities: ['Water', 'Food', 'First Aid', 'Power Supply'],
-    contact: '+91-11-2275-7700',
-    isHospital: false,
-    isActive: true,
-  },
-  {
-    name: 'Nehru Place Convention Centre',
-    location: { type: 'Point', coordinates: [77.2510, 28.5490] },
-    capacity: 300,
-    currentOccupancy: 30,
-    amenities: ['Water', 'Food', 'Medical Aid', 'Blankets', 'WiFi', 'Power Supply', 'Phone Charging'],
-    contact: '+91-11-2646-8800',
-    isHospital: false,
-    isActive: true,
-  },
-
-  // === HOSPITALS ===
-  {
-    name: 'AIIMS — All India Institute',
-    location: { type: 'Point', coordinates: [77.2100, 28.5672] },
-    capacity: 2500,
-    currentOccupancy: 1800,
-    amenities: ['Emergency', 'ICU', 'Surgery', 'Pharmacy', 'Ambulance', 'Trauma Centre'],
-    contact: '+91-11-2658-8500',
-    isHospital: true,
-    isActive: true,
-  },
-  {
-    name: 'Safdarjung Hospital',
-    location: { type: 'Point', coordinates: [77.2070, 28.5700] },
-    capacity: 1600,
-    currentOccupancy: 1100,
-    amenities: ['Emergency', 'ICU', 'Surgery', 'Pharmacy', 'Ambulance'],
-    contact: '+91-11-2616-5060',
-    isHospital: true,
-    isActive: true,
-  },
-  {
-    name: 'GTB Hospital — Shahdara',
-    location: { type: 'Point', coordinates: [77.2950, 28.6830] },
+    name: 'Shivaji Park Emergency Shelter',
     capacity: 1500,
-    currentOccupancy: 900,
-    amenities: ['Emergency', 'ICU', 'Pharmacy', 'Ambulance'],
-    contact: '+91-11-2258-7555',
-    isHospital: true,
-    isActive: true,
+    currentOccupancy: 1200,
+    location: { type: 'Point', coordinates: [72.8378, 19.0269] },
+    amenities: ['food', 'water', 'medical'],
+    contact: '+91-22-2445-0002',
+    isHospital: false
   },
   {
-    name: 'Sir Ganga Ram Hospital',
-    location: { type: 'Point', coordinates: [77.1910, 28.6390] },
-    capacity: 675,
-    currentOccupancy: 400,
-    amenities: ['Emergency', 'ICU', 'Surgery', 'Pharmacy', 'Ambulance', 'Blood Bank'],
-    contact: '+91-11-2586-1234',
-    isHospital: true,
-    isActive: true,
+    name: 'Juhu Beach Recreation Center',
+    capacity: 800,
+    currentOccupancy: 450,
+    location: { type: 'Point', coordinates: [72.8267, 19.1051] },
+    amenities: ['food', 'water'],
+    contact: '+91-22-2612-0003',
+    isHospital: false
   },
+  {
+    name: 'Goregaon Sports Complex',
+    capacity: 3000,
+    currentOccupancy: 2800,
+    location: { type: 'Point', coordinates: [72.8464, 19.1648] },
+    amenities: ['food', 'water', 'medical', 'helipad'],
+    contact: '+91-22-2872-0004',
+    isHospital: false
+  },
+  
+  // Hospitals
+  {
+    name: 'Lilavati Hospital & Research Centre',
+    capacity: 500,
+    currentOccupancy: 450,
+    location: { type: 'Point', coordinates: [72.8277, 19.0504] },
+    amenities: ['medical', 'surgery', 'icu', 'ambulance'],
+    contact: '+91-22-2675-1000',
+    isHospital: true
+  },
+  {
+    name: 'Kokilaben Dhirubhai Ambani Hospital',
+    capacity: 750,
+    currentOccupancy: 600,
+    location: { type: 'Point', coordinates: [72.8256, 19.1314] },
+    amenities: ['medical', 'surgery', 'icu', 'trauma'],
+    contact: '+91-22-3099-9999',
+    isHospital: true
+  },
+  {
+    name: 'Hinduja Hospital',
+    capacity: 400,
+    currentOccupancy: 380,
+    location: { type: 'Point', coordinates: [72.8370, 19.0335] },
+    amenities: ['medical', 'surgery', 'icu'],
+    contact: '+91-22-2445-1515',
+    isHospital: true
+  }
 ];
 
 module.exports = mockShelters;
