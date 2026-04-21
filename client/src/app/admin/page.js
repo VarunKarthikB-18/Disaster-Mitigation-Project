@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { fetchSOS, updateSOS, fetchAlerts, createAlert, fetchDisasters, fetchShelters } from '@/lib/api';
 import { getSocket } from '@/lib/socket';
 import { useApp } from '@/context/AppContext';
-import LoginScreen from '@/components/LoginScreen';
 import AdminDisasterManager from '@/components/admin/AdminDisasterManager';
 import AdminShelterManager from '@/components/admin/AdminShelterManager';
 
@@ -113,7 +112,6 @@ export default function AdminDashboard() {
 
   return (
     <>
-      <LoginScreen requiredRole="admin" />
       <div className="admin-layout">
         {/* Header */}
         <header className="header-bar">
@@ -135,7 +133,7 @@ export default function AdminDashboard() {
               SYSTEM ONLINE
             </div>
             <div className="header-nav">
-              <Link href="/" className="header-nav-btn">🗺️ Dashboard</Link>
+              <Link href="/" className="header-nav-btn">🏠 Home</Link>
               <Link href="/admin" className="header-nav-btn active">⚙️ Command Center</Link>
             </div>
           </div>

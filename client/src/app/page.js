@@ -1,125 +1,70 @@
-'use client';
-
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
-import { AppProvider, useApp } from '@/context/AppContext';
-import Sidebar from '@/components/Sidebar';
-import AlertBanner from '@/components/AlertBanner';
-import LoginScreen from '@/components/LoginScreen';
-
-// Dynamically import MapView to avoid SSR issues with Leaflet
-const MapView = dynamic(() => import('@/components/MapView'), {
-  ssr: false,
-  loading: () => (
-    <div className="map-container" style={{
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      background: 'var(--bg-primary)'
-    }}>
-      <div className="loading-container">
-        <div className="spinner spinner-lg" style={{ borderTopColor: 'var(--accent-blue)' }}></div>
-        <span>Loading Map...</span>
-      </div>
-    </div>
-  ),
-});
-
-function DashboardContent() {
-  const { state } = useApp();
-
-  const pendingSOS = state.sosRequests.filter(s => s.status === 'pending').length;
-  const activeDisasters = state.disasters.length;
-  const activeShelters = state.shelters.length;
-  const activeAlerts = state.alerts.length;
-
-  if (state.loading) {
-    return (
-      <div style={{
-        width: '100vw', height: '100vh',
-        display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center',
-        background: 'var(--bg-primary)', gap: '16px',
-      }}>
-        <div className="spinner spinner-lg" style={{ borderTopColor: 'var(--accent-blue)' }}></div>
-        <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>
-          Connecting to Disaster Response Server...
-        </p>
-      </div>
-    );
-  }
-
-  if (state.error) {
-    return (
-      <div style={{
-        width: '100vw', height: '100vh',
-        display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center',
-        background: 'var(--bg-primary)', gap: '16px', padding: '20px',
-      }}>
-        <span style={{ fontSize: '48px' }}>⚠️</span>
-        <h2 style={{ color: 'var(--text-primary)', fontSize: '20px' }}>Connection Failed</h2>
-        <p style={{ color: 'var(--text-muted)', fontSize: '14px', textAlign: 'center', maxWidth: '400px' }}>
-          Unable to connect to the backend server. Make sure the server is running on port 5001.
-        </p>
-      </div>
-    );
-  }
-
+export default function HeroLandingPage() {
   return (
-    <>
-      <LoginScreen requiredRole="citizen" />
-      <div className="app-layout">
-        {/* Header */}
-        <header className="header-bar">
-          <div className="header-brand">
-            <div className="header-brand-icon">🛡️</div>
-            <div>
-              <h1>DisasterShield</h1>
-              <span>Evacuation Intelligence</span>
-            </div>
-          </div>
+    <div className="hero-container">
+      {/* Abstract Background Elements */}
+      <div className="hero-bg-accent left"></div>
+      <div className="hero-bg-accent right"></div>
 
-          <div className="header-stats">
-            <div className="header-stat">
-              <span className="dot red"></span>
-              <span>{activeDisasters} Active Zones</span>
-            </div>
-            <div className="header-stat">
-              <span className="dot amber"></span>
-              <span>{pendingSOS} Pending SOS</span>
-            </div>
-            <div className="header-stat">
-              <span className="dot green"></span>
-              <span>{activeShelters} Shelters</span>
-            </div>
-            <div className="header-stat">
-              <span className="dot blue"></span>
-              <span>{activeAlerts} Alerts</span>
-            </div>
-          </div>
+      <header className="hero-header">
+        <div className="hero-brand">
+          <div className="hero-brand-icon">🛡️</div>
+          <span className="hero-brand-text">DisasterShield</span>
+        </div>
+        <nav className="hero-nav">
+          <a href="#features">Features</a>
+          <a href="#technology">Technology</a>
+        </nav>
+      </header>
 
-          <div className="header-nav">
-            <Link href="/" className="header-nav-btn active">
-              🗺️ Dashboard
-            </Link>
-            <Link href="/admin" className="header-nav-btn">
-              ⚙️ Admin
-            </Link>
+      <main className="hero-main">
+        <div className="hero-content">
+          <div className="hero-badge">Next-Generation Systems</div>
+          <h1 className="hero-title">
+            Evacuation Intelligence &<br/>
+            <span>Crisis Coordination</span> Platform
+          </h1>
+          <p className="hero-subtitle">
+            Empowering communities and authorities with real-time disaster mapping, dynamic evacuation routing, and synchronized emergency response operations.
+          </p>
+          
+          <div className="hero-actions">
+            <a href="/auth?role=citizen" className="hero-btn primary">
+              <span className="icon">🏃</span>
+              <div className="btn-text">
+                <strong>Access Citizen Portal</strong>
+                <span>Find shelters & routes</span>
+              </div>
+            </a>
+            
+            <a href="/auth?role=admin" className="hero-btn secondary">
+              <span className="icon">⚙️</span>
+              <div className="btn-text">
+                <strong>Authority Login</strong>
+                <span>Manage crisis zones</span>
+              </div>
+            </a>
           </div>
-        </header>
-
-        {/* Main Content */}
-        <div className="main-content">
-          <Sidebar />
-          <MapView />
         </div>
 
-        {/* Alert Banners */}
-        <AlertBanner />
-      </div>
-    </>
+        {/* Feature Grid */}
+        <div className="hero-features" id="features">
+          <div className="feature-card">
+            <div className="feature-icon">🗺️</div>
+            <h3>Dynamic Routing</h3>
+            <p>Calculates the safest evacuation paths instantly based on real-time damage analysis to the municipal roadway network.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🚁</div>
+            <h3>SOS Triaging</h3>
+            <p>Direct integration with NDRF and municipal teams to dispatch precise medical, structural, and aeronautical operations.</p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon">🤖</div>
+            <h3>AI Guidance</h3>
+            <p>Embedded offline-first AI processing capabilities providing immediate safety protocols under zero-connectivity.</p>
+          </div>
+        </div>
+      </main>
+    </div>
   );
-}
-
-export default function Home() {
-  return <DashboardContent />;
 }
