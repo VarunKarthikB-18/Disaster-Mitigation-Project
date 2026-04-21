@@ -7,6 +7,7 @@ import { getSocket } from '@/lib/socket';
 const AppContext = createContext(null);
 
 const initialState = {
+  auth: { isAuthenticated: false, role: null }, // 'citizen' or 'admin'
   disasters: [],
   shelters: [],
   hospitals: [],
@@ -25,6 +26,8 @@ function appReducer(state, action) {
       return { ...state, loading: action.payload };
     case 'SET_ERROR':
       return { ...state, error: action.payload, loading: false };
+    case 'SET_AUTH':
+      return { ...state, auth: action.payload };
     case 'SET_DISASTERS':
       return { ...state, disasters: action.payload };
     case 'SET_SHELTERS': {

@@ -10,6 +10,7 @@ const shelterRoutes = require('./routes/shelters');
 const disasterRoutes = require('./routes/disasters');
 const alertRoutes = require('./routes/alerts');
 const routingRoutes = require('./routes/routing');
+const damageRoutes = require('./routes/damage');
 
 const app = express();
 const server = http.createServer(app);
@@ -34,6 +35,7 @@ app.use('/api/shelters', shelterRoutes);
 app.use('/api/disasters', disasterRoutes);
 app.use('/api/alerts', alertRoutes);
 app.use('/api/route', routingRoutes);
+app.use('/api/damage', damageRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });

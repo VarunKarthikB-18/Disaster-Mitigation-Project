@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { AppProvider, useApp } from '@/context/AppContext';
 import Sidebar from '@/components/Sidebar';
 import AlertBanner from '@/components/AlertBanner';
+import LoginScreen from '@/components/LoginScreen';
 
 // Dynamically import MapView to avoid SSR issues with Leaflet
 const MapView = dynamic(() => import('@/components/MapView'), {
@@ -57,68 +58,65 @@ function DashboardContent() {
         <span style={{ fontSize: '48px' }}>⚠️</span>
         <h2 style={{ color: 'var(--text-primary)', fontSize: '20px' }}>Connection Failed</h2>
         <p style={{ color: 'var(--text-muted)', fontSize: '14px', textAlign: 'center', maxWidth: '400px' }}>
-          Unable to connect to the backend server. Make sure the server is running on port 5000.
+          Unable to connect to the backend server. Make sure the server is running on port 5001.
         </p>
-        <code style={{
-          padding: '8px 16px', background: 'var(--bg-tertiary)',
-          borderRadius: 'var(--radius-sm)', color: 'var(--accent-cyan)', fontSize: '13px'
-        }}>
-          cd server &amp;&amp; npm start
-        </code>
       </div>
     );
   }
 
   return (
-    <div className="app-layout">
-      {/* Header */}
-      <header className="header-bar">
-        <div className="header-brand">
-          <div className="header-brand-icon">🛡️</div>
-          <div>
-            <h1>DisasterShield</h1>
-            <span>Evacuation Intelligence</span>
+    <>
+      <LoginScreen requiredRole="citizen" />
+      <div className="app-layout">
+        {/* Header */}
+        <header className="header-bar">
+          <div className="header-brand">
+            <div className="header-brand-icon">🛡️</div>
+            <div>
+              <h1>DisasterShield</h1>
+              <span>Evacuation Intelligence</span>
+            </div>
           </div>
+
+          <div className="header-stats">
+            <div className="header-stat">
+              <span className="dot red"></span>
+              <span>{activeDisasters} Active Zones</span>
+            </div>
+            <div className="header-stat">
+              <span className="dot amber"></span>
+              <span>{pendingSOS} Pending SOS</span>
+            </div>
+            <div className="header-stat">
+              <span className="dot green"></span>
+              <span>{activeShelters} Shelters</span>
+            </div>
+            <div className="header-stat">
+              <span className="dot blue"></span>
+              <span>{activeAlerts} Alerts</span>
+            </div>
+          </div>
+
+          <div className="header-nav">
+            <Link href="/" className="header-nav-btn active">
+              🗺️ Dashboard
+            </Link>
+            <Link href="/admin" className="header-nav-btn">
+              ⚙️ Admin
+            </Link>
+          </div>
+        </header>
+
+        {/* Main Content */}
+        <div className="main-content">
+          <Sidebar />
+          <MapView />
         </div>
 
-        <div className="header-stats">
-          <div className="header-stat">
-            <span className="dot red"></span>
-            <span>{activeDisasters} Active Zones</span>
-          </div>
-          <div className="header-stat">
-            <span className="dot amber"></span>
-            <span>{pendingSOS} Pending SOS</span>
-          </div>
-          <div className="header-stat">
-            <span className="dot green"></span>
-            <span>{activeShelters} Shelters</span>
-          </div>
-          <div className="header-stat">
-            <span className="dot blue"></span>
-            <span>{activeAlerts} Alerts</span>
-          </div>
-        </div>
-
-        <div className="header-nav">
-          <Link href="/" className="header-nav-btn active">
-            🗺️ Dashboard
-          </Link>
-          <Link href="/admin" className="header-nav-btn">
-            ⚙️ Admin
-          </Link>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <div className="main-content">
-        <Sidebar />
-        <MapView />
+        {/* Alert Banners */}
+        <AlertBanner />
       </div>
-
-      {/* Alert Banners */}
-      <AlertBanner />
-    </div>
+    </>
   );
 }
 

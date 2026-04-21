@@ -4,12 +4,16 @@ import { useState } from 'react';
 import SOSForm from './SOSForm';
 import ShelterFinder from './ShelterFinder';
 import EvacuationRoute from './EvacuationRoute';
+import DamageReportForm from './DamageReportForm';
+import AIAssistant from './AIAssistant';
 import { useApp } from '@/context/AppContext';
 
 const TABS = [
   { id: 'sos', icon: '🚨', label: 'SOS' },
   { id: 'shelters', icon: '🏠', label: 'Shelters' },
   { id: 'route', icon: '🛤️', label: 'Route' },
+  { id: 'damage', icon: '📸', label: 'Report' },
+  { id: 'ai', icon: '🤖', label: 'AI Guide' },
   { id: 'alerts', icon: '📢', label: 'Alerts' },
 ];
 
@@ -25,6 +29,10 @@ export default function Sidebar() {
         return <ShelterFinder />;
       case 'route':
         return <EvacuationRoute />;
+      case 'damage':
+        return <DamageReportForm />;
+      case 'ai':
+        return <AIAssistant />;
       case 'alerts':
         return <AlertsTab />;
       default:
