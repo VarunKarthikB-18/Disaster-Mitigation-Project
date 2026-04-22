@@ -19,45 +19,38 @@ const TABS = [
 
 export default function Sidebar() {
   const [activeTab, setActiveTab] = useState('sos');
-  const { state } = useApp();
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'sos':
-        return <SOSForm />;
-      case 'shelters':
-        return <ShelterFinder />;
-      case 'route':
-        return <EvacuationRoute />;
-      case 'damage':
-        return <DamageReportForm />;
-      case 'ai':
-        return <AIAssistant />;
-      case 'alerts':
-        return <AlertsTab />;
-      default:
-        return null;
+      case 'sos': return <SOSForm />;
+      case 'shelters': return <ShelterFinder />;
+      case 'route': return <EvacuationRoute />;
+      case 'damage': return <DamageReportForm />;
+      case 'ai': return <AIAssistant />;
+      case 'alerts': return <AlertsTab />;
+      default: return null;
     }
   };
 
   return (
-    <aside className="sidebar" id="sidebar">
-      <div className="sidebar-tabs">
+    <div className="sidebar-wrapper">
+      <nav className="sidebar-nav">
         {TABS.map((tab) => (
           <button
             key={tab.id}
-            className={`sidebar-tab ${activeTab === tab.id ? 'active' : ''}`}
+            className={`sidebar-nav-btn ${activeTab === tab.id ? 'active' : ''}`}
             onClick={() => setActiveTab(tab.id)}
+            title={tab.label}
           >
-            <span className="tab-icon">{tab.icon}</span>
-            <span>{tab.label}</span>
+            <span>{tab.icon}</span>
+            <span className="sidebar-nav-label">{tab.label}</span>
           </button>
         ))}
-      </div>
-      <div className="sidebar-content">
+      </nav>
+      <aside className="sidebar-panel">
         {renderContent()}
-      </div>
-    </aside>
+      </aside>
+    </div>
   );
 }
 
@@ -66,13 +59,13 @@ function AlertsTab() {
 
   return (
     <div>
-      <h3 className="section-title">📢 Active Alerts</h3>
-      <p className="section-desc">Real-time emergency alerts and updates from authorities.</p>
+      <h3 className="section-title" style={{ fontSize: '18px', fontWeight: '800', marginBottom: '8px' }}>Active Overrides</h3>
+      <p className="section-desc" style={{ marginBottom: '24px' }}>Real-time emergency overrides and dispatches.</p>
 
       {state.alerts.length === 0 ? (
         <div className="empty-state">
           <div className="empty-icon">📢</div>
-          <p>No active alerts at this time.</p>
+          <p>No active overrides at this time.</p>
         </div>
       ) : (
         state.alerts.map((alert, i) => (
