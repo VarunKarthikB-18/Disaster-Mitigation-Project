@@ -24,32 +24,43 @@ export default function HeroLandingPage() {
       </header>
 
       <main className="hero-main">
-        <div className="hero-content">
-          <div className="hero-badge">Next-Generation Systems</div>
-          <h1 className="hero-title">
-            Evacuation Intelligence &<br/>
-            <span>Crisis Coordination</span> Platform
-          </h1>
-          <p className="hero-subtitle">
-            Empowering communities and authorities with real-time disaster mapping, dynamic evacuation routing, and synchronized emergency response operations.
-          </p>
-          
-          <div className="hero-actions">
-            <a href="/auth?role=citizen" className="hero-btn primary">
-              <span className="icon">🏃</span>
-              <div className="btn-text">
-                <strong>Access Citizen Portal</strong>
-                <span>Find shelters & routes</span>
-              </div>
-            </a>
+        <div className="hero-split-grid">
+          <div className="hero-content">
+            <div className="hero-badge">Command Center Grade Software</div>
+            <h1 className="hero-title">
+              Evacuation Intelligence &<br/>
+              <span>Crisis Coordination</span>
+            </h1>
+            <p className="hero-subtitle">
+              Empowering communities and authorities with real-time disaster mapping, dynamic evacuation routing, and synchronized emergency response operations.
+            </p>
             
-            <a href="/auth?role=admin" className="hero-btn secondary">
-              <span className="icon">⚙️</span>
-              <div className="btn-text">
-                <strong>Authority Login</strong>
-                <span>Manage crisis zones</span>
-              </div>
-            </a>
+            <div className="hero-actions">
+              <a href="/auth?role=citizen" className="hero-btn primary">
+                <span className="icon">🏃</span>
+                <div className="btn-text">
+                  <strong>Access Citizen Portal</strong>
+                  <span>Find shelters & routes</span>
+                </div>
+              </a>
+              
+              <a href="/auth?role=admin" className="hero-btn secondary">
+                <span className="icon">⚙️</span>
+                <div className="btn-text">
+                  <strong>Authority Login</strong>
+                  <span>Manage crisis zones</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <div className="hero-graphic-wrapper">
+            {/* The hyper-realistic mockup artifact we generated to instantly validate credibility */}
+            <img 
+              src="/dashboard-mockup.png" 
+              alt="DisasterShield Platform Interface Mockup" 
+              className="hero-graphic"
+            />
           </div>
         </div>
 

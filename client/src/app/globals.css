@@ -91,9 +91,9 @@ h1, h2, h3, h4 { color: var(--text-bright); font-weight: 700; letter-spacing: -0
 }
 
 /* Beautiful abstract background shapes */
-.hero-bg-accent { position: absolute; border-radius: 50%; filter: blur(100px); z-index: 0; pointer-events: none; }
-.hero-bg-accent.left { width: 600px; height: 600px; background: rgba(15, 98, 254, 0.08); top: -200px; left: -200px; }
-.hero-bg-accent.right { width: 800px; height: 800px; background: rgba(218, 30, 40, 0.05); bottom: -300px; right: -300px; }
+.hero-bg-accent { position: absolute; border-radius: 50%; filter: blur(120px); z-index: 0; pointer-events: none; }
+.hero-bg-accent.left { width: 800px; height: 800px; background: rgba(15, 98, 254, 0.05); top: -200px; left: -200px; }
+.hero-bg-accent.right { width: 1000px; height: 1000px; background: rgba(218, 30, 40, 0.04); bottom: -400px; right: -400px; }
 
 .hero-header {
   height: var(--header-height); padding: 0 40px;
@@ -111,17 +111,21 @@ h1, h2, h3, h4 { color: var(--text-bright); font-weight: 700; letter-spacing: -0
 .hero-nav a:hover { color: var(--accent-blue); }
 
 .hero-main {
-  flex: 1; display: flex; flex-direction: column; align-items: center;
-  padding: 80px 24px; z-index: 10; position: relative; text-align: center;
+  flex: 1; padding: 100px 40px; z-index: 10; position: relative;
+  max-width: 1400px; margin: 0 auto; width: 100%;
 }
 
-.hero-content { max-width: 800px; margin-bottom: 80px; }
-.hero-badge { display: inline-block; padding: 6px 16px; background: #eff6ff; color: var(--accent-blue); border-radius: var(--radius-full); font-size: 12px; font-weight: 700; margin-bottom: 24px; }
-.hero-title { font-size: 64px; line-height: 1.1; margin-bottom: 24px; }
-.hero-title span { color: var(--accent-blue); }
-.hero-subtitle { font-size: 18px; color: var(--text-secondary); margin-bottom: 48px; max-width: 600px; margin-inline: auto; line-height: 1.6; }
+.hero-split-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 120px;
+}
 
-.hero-actions { display: flex; gap: 20px; justify-content: center; }
+.hero-content { text-align: left; max-width: 650px; }
+.hero-badge { display: inline-block; padding: 6px 16px; background: #eff6ff; color: var(--accent-blue); border-radius: var(--radius-full); font-size: 12px; font-weight: 700; margin-bottom: 24px; border: 1px solid #bfdbfe; }
+.hero-title { font-size: 64px; line-height: 1.1; margin-bottom: 24px; font-weight: 900; letter-spacing: -2px; }
+.hero-title span { color: var(--accent-blue); }
+.hero-subtitle { font-size: 18px; color: var(--text-secondary); margin-bottom: 48px; line-height: 1.6; }
+
+.hero-actions { display: flex; gap: 20px; justify-content: flex-start; }
 .hero-btn { display: flex; align-items: center; gap: 16px; padding: 16px 24px; border-radius: var(--radius-md); text-align: left; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 .hero-btn.primary { background: var(--accent-blue); color: white; box-shadow: var(--shadow-lg); }
 .hero-btn.primary:hover { background: var(--accent-blue-hover); transform: translateY(-3px); box-shadow: var(--shadow-xl); }
@@ -130,6 +134,10 @@ h1, h2, h3, h4 { color: var(--text-bright); font-weight: 700; letter-spacing: -0
 .hero-btn .icon { font-size: 24px; }
 .hero-btn .btn-text strong { display: block; font-size: 16px; margin-bottom: 4px; }
 .hero-btn .btn-text span { display: block; font-size: 13px; font-weight: 400; opacity: 0.8; }
+
+.hero-graphic-wrapper { position: relative; width: 100%; border-radius: 20px; background: white; padding: 12px; box-shadow: var(--shadow-xl), inset 0 1px 2px rgba(255,255,255,0.5); border: 1px solid var(--border-subtle); transform: perspective(1200px) rotateY(-8deg) rotateX(2deg); transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.hero-graphic-wrapper:hover { transform: perspective(1200px) rotateY(0deg) rotateX(0deg); box-shadow: 0 40px 80px rgba(0,0,0,0.15); }
+.hero-graphic { width: 100%; height: auto; border-radius: 12px; display: block; border: 1px solid var(--border-subtle); }
 
 .hero-section-title { font-size: 36px; margin-bottom: 40px; text-align: center; width: 100%; color: var(--text-bright); }
 
