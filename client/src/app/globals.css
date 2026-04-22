@@ -170,28 +170,32 @@ h1, h2, h3, h4 { color: var(--text-bright); font-weight: 700; letter-spacing: -0
   position: fixed; top: 0; left: 0; right: 0; height: var(--header-height);
   background: white; border-bottom: 1px solid var(--border-subtle);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 24px; z-index: 1000;
+  padding: 0 32px; z-index: 1000;
 }
 
+.header-brand { display: flex; align-items: center; gap: 16px; }
+.header-brand h1 { margin: 0; font-size: 24px; line-height: 1; font-weight: 900; letter-spacing: -0.5px; color: var(--text-bright); }
+.header-brand span { display: block; margin-top: 6px; font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; line-height: 1; }
+
 .header-stats { display: flex; flex: 1; justify-content: center; gap: 16px; }
-.header-stat { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--text-secondary); padding: 6px 14px; background: var(--bg-primary); border-radius: var(--radius-full); border: 1px solid var(--border-subtle); }
-.header-stat .dot { width: 8px; height: 8px; border-radius: 50%; }
+.header-stat { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: var(--text-secondary); padding: 8px 16px; background: var(--bg-primary); border-radius: var(--radius-full); border: 1px solid var(--border-subtle); box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); }
+.header-stat .dot { width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 8px currentColor; }
 
 .header-nav { display: flex; gap: 12px; }
-.header-nav-btn { padding: 8px 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; color: var(--text-secondary); transition: 0.2s; border: 1px solid transparent; }
+.header-nav-btn { padding: 10px 20px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 700; color: var(--text-secondary); transition: 0.2s; border: 1px solid transparent; background: transparent; cursor: pointer; }
 .header-nav-btn:hover { background: var(--bg-primary); }
-.header-nav-btn.active { background: #eff6ff; color: var(--accent-blue); border-color: #bfdbfe; }
+.header-nav-btn.active { background: #eff6ff; color: var(--accent-blue); border-color: #bfdbfe; box-shadow: var(--shadow-sm); }
 
 /* === DASHBOARD LAYOUT === */
 .main-content { display: flex; width: 100%; height: calc(100vh - var(--header-height)); margin-top: var(--header-height); overflow: hidden; }
 
 .sidebar-wrapper { display: flex; height: 100%; z-index: 100; box-shadow: var(--shadow-lg); }
 
-.sidebar-nav { width: 72px; height: 100%; background: #0f172a; display: flex; flex-direction: column; align-items: center; padding: 24px 0; gap: 16px; border-right: 1px solid rgba(255,255,255,0.1); }
-.sidebar-nav-btn { width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; background: transparent; border: none; color: #94a3b8; cursor: pointer; transition: 0.2s; font-size: 20px; }
-.sidebar-nav-btn:hover { background: #1e293b; color: white; }
+.sidebar-nav { width: 96px; height: 100%; background: #0f172a; display: flex; flex-direction: column; align-items: center; padding: 32px 0; gap: 16px; border-right: 1px solid rgba(255,255,255,0.05); }
+.sidebar-nav-btn { width: 76px; height: 76px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: transparent; border: none; color: #94a3b8; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); font-size: 24px; }
+.sidebar-nav-btn:hover { background: #1e293b; color: white; transform: translateY(-2px); }
 .sidebar-nav-btn.active { background: var(--accent-blue); color: white; box-shadow: var(--shadow-md); }
-.sidebar-nav-label { font-size: 9px; font-weight: 700; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.sidebar-nav-label { font-size: 10px; font-weight: 800; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.9; }
 
 .sidebar-panel { width: 380px; height: 100%; background: white; border-right: 1px solid var(--border-subtle); overflow-y: auto; padding: 32px 24px; position: relative; }
 
