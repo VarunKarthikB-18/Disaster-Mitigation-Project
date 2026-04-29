@@ -1,8 +1,17 @@
 'use client';
+import Link from 'next/link';
 
 export default function HeroLandingPage() {
   const scrollToTop = () => {
     if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -17,9 +26,9 @@ export default function HeroLandingPage() {
           <span className="hero-brand-text">DisasterShield</span>
         </div>
         <nav className="hero-nav">
-          <a href="#features">Features</a>
-          <a href="#technology">Technology</a>
-          <a href="/auth?role=citizen" style={{ background: 'var(--bg-primary)', padding: '8px 16px', borderRadius: 'var(--radius-full)', color: 'var(--accent-blue)', border: '1px solid var(--accent-blue)'}}>Login</a>
+          <a href="#features" onClick={(e) => scrollToSection(e, 'features')} style={{ cursor: 'pointer' }}>Features</a>
+          <a href="#technology" onClick={(e) => scrollToSection(e, 'technology')} style={{ cursor: 'pointer' }}>Technology</a>
+          <Link href="/dashboard" style={{ background: 'var(--bg-primary)', padding: '8px 16px', borderRadius: 'var(--radius-full)', color: 'var(--accent-blue)', border: '1px solid var(--accent-blue)', cursor: 'pointer'}}>Enter Command Center</Link>
         </nav>
       </header>
 
@@ -36,21 +45,13 @@ export default function HeroLandingPage() {
             </p>
             
             <div className="hero-actions">
-              <a href="/auth?role=citizen" className="hero-btn primary">
-                <span className="icon">🏃</span>
+              <Link href="/dashboard" className="hero-btn primary">
+                <span className="icon">🛡️</span>
                 <div className="btn-text">
-                  <strong>Access Citizen Portal</strong>
-                  <span>Find shelters & routes</span>
+                  <strong>Enter Command Center</strong>
+                  <span>Access dynamic live map & incidents</span>
                 </div>
-              </a>
-              
-              <a href="/auth?role=admin" className="hero-btn secondary">
-                <span className="icon">⚙️</span>
-                <div className="btn-text">
-                  <strong>Authority Login</strong>
-                  <span>Manage crisis zones</span>
-                </div>
-              </a>
+              </Link>
             </div>
           </div>
           
